@@ -22,7 +22,6 @@
   <!-- APPLICATION STYLING -->
   <style type='text/css'>
   #content {width: 800px; margin: 0 auto; background-color: #F5E0FF; border-radius: 5px;}
-  #content > ul.kbi > li.kbi {margin-left: 0px;}
   h1 {text-align: center; font-size: 2em; color: #fff; background-color: #CC66FF; border-radius: 5px;}
   </style>
   <link rel='stylesheet' href="../../../knockback-inspector.css">
@@ -45,7 +44,7 @@
     </script>
 
     <!-- Step 2: Rendering a Backbone.Model using kb.ViewModel -->
-    <ul id='backbone_model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
+    <ul id='backbone_model' class='kbi root' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
     <script type='text/javascript'>
       var model1 = new Backbone.Model({name: 'Model1', pet: 'frog', friends: new Backbone.Collection([])});
       var model2 = new Backbone.Model({name: 'Model2', pet: 'dog', friends: new Backbone.Collection([])});

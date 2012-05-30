@@ -7,11 +7,16 @@ ul.kbi {
 li.kbi {
   padding-left: 1px;
   margin-left: 10px;
+  margin-right: 10px;
   border-style: solid;
   border-color: rgb(90, 0, 180); /* The Fallback */
   border-color: rgba(90, 0, 180, 0.2);
   border-width: 1px;
   border-radius: 5px;
+}
+ul.kbi.root > li.kbi {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 li.kbi.closed {
   border-style: none; font-style:italic;
