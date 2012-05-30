@@ -22,5 +22,10 @@ kbi.FetchedModel = Backbone.Model.extend({
 // General-purpose collection for fetched JSON when you do not have a specialized implementation
 kbi.FetchedCollection = Backbone.Collection.extend({
   model: kbi.FetchedModel,
-  parse: function(response) { return response.results; }
+  parse: function(response) {
+    return _.map(response.results, function(result) {
+      var model = new kbi.FetchedModel();
+      return model.set(model.parse(result));
+    });
+  }
 });

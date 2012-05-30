@@ -16,4 +16,7 @@ class kbi.FetchedModel extends Backbone.Model
 # General-purpose collection for fetched JSON when you do not have a specialized implementation
 class kbi.FetchedCollection extends Backbone.Collection
   model: kbi.FetchedModel
-  parse: (response) -> return response.results
+  parse: (response) -> return _.map(response.results, (result) ->
+    model = new kbi.FetchedModel()
+    return model.set(model.parse(result))
+  )

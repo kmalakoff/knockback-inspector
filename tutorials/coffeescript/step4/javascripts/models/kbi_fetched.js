@@ -44,7 +44,11 @@
     FetchedCollection.prototype.model = kbi.FetchedModel;
 
     FetchedCollection.prototype.parse = function(response) {
-      return response.results;
+      return _.map(response.results, function(result) {
+        var model;
+        model = new kbi.FetchedModel();
+        return model.set(model.parse(result));
+      });
     };
 
     return FetchedCollection;
