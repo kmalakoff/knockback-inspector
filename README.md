@@ -1,17 +1,10 @@
 ````
- _  __                 _     _                _
-| |/ /_ __   ___   ___| | __| |__   __ _  ___| | __
-| ' /| '_ \ / _ \ / __| |/ /| '_ \ / _` |/ __| |/ /
-| . \| | | | (_) | (__|   < | |_) | (_| | (__|   <
-|_|\_\_| |_|\___/ \___|_|\_\|_.__/ \__,_|\___|_|\_\
-
-
- ___                           _
-|_ _|_ __  ___ _ __   ___  ___| |_  ___  _ __
- | || '_ \/ __| '_ \ / _ \/ __| __|/ _ \| '__|
- | || | | \__ \ |_) |  __/ (__| |_| (_) | |
-|___|_| |_|___/ .__/ \___|\___|\__|\___/|_|
-              |_|
+  _  __                 _     _                _         ___                           _              
+ | |/ /_ __   ___   ___| | __| |__   __ _  ___| | __    |_ _|_ __  ___ _ __   ___  ___| |_  ___  _ __ 
+ | ' /| '_ \ / _ \ / __| |/ /| '_ \ / _` |/ __| |/ /_____| || '_ \/ __| '_ \ / _ \/ __| __|/ _ \| '__|
+ | . \| | | | (_) | (__|   < | |_) | (_| | (__|   <|_____| || | | \__ \ |_) |  __/ (__| |_| (_) | |   
+ |_|\_\_| |_|\___/ \___|_|\_\|_.__/ \__,_|\___|_|\_\    |___|_| |_|___/ .__/ \___|\___|\__|\___/|_|   
+                                                                      |_|                             
 ````
 
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js
@@ -20,38 +13,41 @@ Knockback-Inspector.js provides an inspector tree view library for Backbone.Mode
 
 The Knockout-Inspector is designed as a small standalone library that you can integrate into your own application for debugging purposes. Just include the library file and optional styling into your HTML file:
 
-- <script src='knockback-inspector.min.js'></script>
-- <link rel='stylesheet' href='knockback-inspector.css'>
+```
+<script src='knockback-inspector.min.js'></script>
+<link rel='stylesheet' href='knockback-inspector.css'>
+```
 
-along with Knockback.js and its dependencies:
+and include the depdendent scripts: [Knockback.js][1], [Knockout.js][2], [Backbone.js][3], and [Underscore.js][4].
 
-- [Knockout.js]:[https://github.com/SteveSanderson/knockout/downloads/]
-- [Underscore.js]:[http://documentcloud.github.com/underscore/]
-- [Backbone.js]:[http://documentcloud.github.com/backbone/]
-- [Knockback.js]:[http://kmalakoff.github.com/knockback/]
+[1]: http://kmalakoff.github.com/knockback/
+[2]: https://github.com/SteveSanderson/knockout/downloads/
+[3]: http://documentcloud.github.com/backbone/
+[4]: http://documentcloud.github.com/underscore/
 
 If you want to inspect a model, set up the bindings like:
 
 ````
-  <ul id='model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+  <ul id='model' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
   <script type='text/javascript'>
-    var view_model = kb.viewModel(new Backbone.Model({name: 'Hello', place: 'World!'}));
-    ko.applyBindings(view_model, $('#model')[0]);
+    var your_model = new Backbone.Model({name: 'Hello', place: 'World!'});
+    ko.applyBindings(kb.viewModel(your_model), $('#model')[0]);
   </script>
 ````
 
 If you want to inspect a collection, set up the bindings like:
 
 ````
-  <ul id='collection' class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+  <ul id='collection' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, $data)}"></ul>
   <script type='text/javascript'>
-    var collection_observable = kb.collectionObservable(new Backbone.Collection([{name: 'Hello', place: 'World!'}, {name: 'Goodbye', place: 'Samsara!'}]));
-    ko.applyBindings(collection_observable, $('#collection')[0]);
+    var your_collection = new Backbone.Collection([{name: 'Hello', place: 'World!'}, {name: 'Goodbye', place: 'Samsara!'}]);
+    ko.applyBindings(kb.collectionObservable(your_collection, {view_model: kb.ViewModel}), $('#collection')[0]);
   </script>
 ````
 
-For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the full tutorial [here][http://kmalakoff.github.com/knockback/tutorial_inspector_library.html].
+For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][5].
 
+[5]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
 
 Building the library
 -----------------------
