@@ -16,11 +16,11 @@ kbi.ModelNodeView = """
       <!-- /ko -->
 
       <!-- ko if: ($parent.attributeType($data) == 'model') -->
-        <ul class='kbi' data-bind="template: {name: 'kbi_model_node', data: new kbi.NodeViewModel($data, false, $parent.node[$data])}"></ul>
+        <ul class='kbi' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm($data, false, $parent.node[$data])}"></ul>
       <!-- /ko -->
 
       <!-- ko if: ($parent.attributeType($data) == 'collection') -->
-        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel($data+'[]', true, $parent.node[$data])}"></ul>
+        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm($data+'[]', true, $parent.node[$data])}"></ul>
       <!-- /ko -->
 
     <!-- /ko -->

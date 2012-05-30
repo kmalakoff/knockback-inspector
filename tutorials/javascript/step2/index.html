@@ -45,7 +45,7 @@
     </script>
 
     <!-- Step 2: Rendering a Backbone.Model using kb.ViewModel -->
-    <ul id='backbone_model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+    <ul id='backbone_model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
     <script type='text/javascript'>
       var model1 = new Backbone.Model({name: 'Model1', pet: 'frog', friends: new Backbone.Collection([])});
       var model2 = new Backbone.Model({name: 'Model2', pet: 'dog', friends: new Backbone.Collection([])});

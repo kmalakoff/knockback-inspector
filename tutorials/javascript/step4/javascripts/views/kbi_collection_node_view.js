@@ -7,7 +7,7 @@ kbi.CollectionNodeView = " \
 \
   <!-- ko if: opened --> \
     <!-- ko foreach: node --> \
-      <ul class='kbi' data-bind=\"template: {name: 'kbi_model_node', data: new kbi.NodeViewModel('['+$index()+']', false, $data)}\"></ul> \
+      <ul class='kbi' data-bind=\"template: {name: 'kbi_model_node', data: kbi.nvm('['+$index()+']', false, $data)}\"></ul> \
     <!-- /ko --> \
   <!-- /ko --> \
 </li>";

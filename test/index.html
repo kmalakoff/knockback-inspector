@@ -40,7 +40,7 @@
     </script>
 
     <!-- Step 2: Rendering a Backbone.Model using kb.ViewModel -->
-    <ul id='backbone_model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+    <ul id='backbone_model' class='kbi' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
     <script type='text/javascript'>
       var model1 = new Backbone.Model({name: 'Model1', pet: 'frog', friends: new Backbone.Collection([])});
       var model2 = new Backbone.Model({name: 'Model2', pet: 'dog', friends: new Backbone.Collection([])});
@@ -55,7 +55,7 @@
     </br>
 
     <!-- Step 3: Rendering a BackboneRelational using kb.CollectionObservable -->
-    <ul id='backbone_relational' class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+    <ul id='backbone_relational' class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, $data)}"></ul>
     <script type='text/javascript'>
       var Person = Backbone.RelationalModel.extend({});
       var House = Backbone.RelationalModel.extend({
@@ -88,7 +88,7 @@
           <label>URL</label>
           <input type='text' data-bind="value: url">
         </fieldset>
-        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel('root', true, collection)}"></ul>
+        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, collection)}"></ul>
       </li>
     </ul>
 

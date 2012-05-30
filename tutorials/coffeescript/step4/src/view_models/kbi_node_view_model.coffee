@@ -15,3 +15,6 @@ class kbi.NodeViewModel
     return 'model' if (ko.utils.unwrapObservable(attribute_connector) instanceof kb.ViewModel)
     return 'collection' if kb.utils.observableInstanceOf(attribute_connector, kb.CollectionAttributeConnector)
     return 'simple'
+
+# factory
+kbi.nodeViewModel = kbi.nvm = (name, opened, node) -> return new kbi.NodeViewModel(name, opened, node)

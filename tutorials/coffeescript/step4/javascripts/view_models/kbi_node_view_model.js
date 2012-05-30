@@ -32,4 +32,8 @@
 
   })();
 
+  kbi.nodeViewModel = kbi.nvm = function(name, opened, node) {
+    return new kbi.NodeViewModel(name, opened, node);
+  };
+
 }).call(this);

@@ -44,7 +44,7 @@
     </script>
 
   <!-- Step 3: Rendering a BackboneRelational using kb.CollectionObservable -->
-  <ul id='backbone_relational' class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel('root', true, $data)}"></ul>
+  <ul id='backbone_relational' class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, $data)}"></ul>
   <script type='text/javascript'>
     var Person = Backbone.RelationalModel.extend({});
     var House = Backbone.RelationalModel.extend({

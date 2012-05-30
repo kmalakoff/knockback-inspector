@@ -52,7 +52,7 @@
           <label>URL</label>
           <input type='text' data-bind="value: url">
         </fieldset>
-        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: new kbi.NodeViewModel('root', true, collection)}"></ul>
+        <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, collection)}"></ul>
       </li>
     </ul>
 
