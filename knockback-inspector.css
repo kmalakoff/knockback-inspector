@@ -1,0 +1,32 @@
+ul.kbi {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li.kbi {
+  padding-left: 1px;
+  margin-left: 10px;
+  border-style: solid;
+  border-color: rgb(90, 0, 180); /* The Fallback */
+  border-color: rgba(90, 0, 180, 0.2);
+  border-width: 1px;
+  border-radius: 5px;
+}
+li.kbi.closed {
+  border-style: none; font-style:italic;
+}
+
+fieldset.kbi {border: none;}
+fieldset.kbi > label {
+  display: block;
+  float: left;
+  width: 25%;
+  text-align: right;
+  margin-right: 10px;
+}
+fieldset.kbi > input {
+  display: block;
+  float: left;
+  width: 70%;
+}

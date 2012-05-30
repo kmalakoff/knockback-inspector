@@ -1,0 +1,26 @@
+{
+  "author": "Kevin Malakoff <https://github.com/kmalakoff>",
+  "name": "knockback-inspector",
+  "description": "Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js",
+
+  "url": "http://kmalakoff.github.com/knockback-inspector/",
+  "homepage": "http://kmalakoff.github.com/knockback-inspector/",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kmalakoff/knockback-inspector.git"
+  },
+
+  "dependencies"  : {
+    "underscore"  : ">=1.3.1",
+    "backbone"  : ">=0.9.1",
+    "knockout"  : ">=1.2.1",
+    "knockback"  : ">=0.15.1"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.3.0"
+  },
+
+  "lib" : ".",
+  "main" : "knockback-inspector.js",
+  "version": "0.1.0"
+}
