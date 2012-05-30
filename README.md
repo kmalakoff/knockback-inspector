@@ -9,8 +9,9 @@
 
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js
 
-### For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][1].
-### For more information on Knockback.js, please look at the website: http://kmalakoff.github.com/knockback/
+For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][1].
+
+For more information on Knockback.js, please look at the website: http://kmalakoff.github.com/knockback/
 
 The Knockout-Inspector is designed as a small standalone library that you can integrate into your own application for debugging purposes. Just include the library file and optional styling into your HTML file:
 
