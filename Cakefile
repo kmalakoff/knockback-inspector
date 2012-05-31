@@ -1,25 +1,26 @@
 {print} = require 'util'
 {spawn} = require 'child_process'
+fs = require 'fs'
 path = require 'path'
 
-callback = ->
-  spawn 'uglifyjs', ['-o', 'knockback-inspector.min.js', 'knockback-inspector.js']
-  print "#{(new Date).toLocaleTimeString()} - generated knockback-inspector.min.js\n"
+LIBRARY_NAMES = {development: 'knockback-inspector.js', production: 'knockback-inspector.min.js'}
 
-task 'build', 'Build javascripts/ from src/', ->
-  coffee = spawn 'coffee', ['-c', '-j', 'knockback-inspector.js', 'src']
-  coffee.stderr.on 'data', (data) ->
-    process.stderr.write data.toString()
+build = (watch) ->
+  coffee = spawn 'coffee', (if watch then ['-w'] else []).concat(['-j', LIBRARY_NAMES.development, '-o', '.', '-c', 'src'])
+  coffee.stderr.on 'data', (data) -> process.stderr.write data.toString()
   coffee.stdout.on 'data', (data) ->
     print data.toString()
-  coffee.on 'exit', (code) ->
-    callback?() if code is 0
+    spawn 'uglifyjs', ['-o', LIBRARY_NAMES.production, LIBRARY_NAMES.development] if watch
+  if not watch
+    coffee.on 'exit', (code) ->
+      spawn 'uglifyjs', ['-o', LIBRARY_NAMES.production, LIBRARY_NAMES.development] if code is 0
 
-task 'watch', 'Watch src/ for changes', ->
-  coffee = spawn 'coffee', ['-w', '-o', '.', '-j', 'knockback-inspector.js', 'src']
-  coffee.stderr.on 'data', (data) ->
-    print 'Error'
-    process.stderr.write data.toString()
-  coffee.stdout.on 'data', (data) ->
-    print data.toString()
-    callback?()
+clean = ->
+  fs.unlink(name) for key, name of LIBRARY_NAMES
+
+##############################
+# COMMANDS
+##############################
+task 'clean', 'Remove generated JavaScript files',  -> clean()
+task 'build', 'Build library and tests',            -> clean(); build(false) # just build
+task 'watch', 'Watch library and tests',            -> clean(); build(true) # build with watch
