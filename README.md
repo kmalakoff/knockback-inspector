@@ -1,11 +1,4 @@
-````
-  _  __                 _     _                _         ___                           _
- | |/ /_ __   ___   ___| | __| |__   __ _  ___| | __    |_ _|_ __  ___ _ __   ___  ___| |_  ___  _ __
- | ' /| '_ \ / _ \ / __| |/ /| '_ \ / _` |/ __| |/ /_____| || '_ \/ __| '_ \ / _ \/ __| __|/ _ \| '__|
- | . \| | | | (_) | (__|   < | |_) | (_| | (__|   <|_____| || | | \__ \ |_) |  __/ (__| |_| (_) | |
- |_|\_\_| |_|\___/ \___|_|\_\|_.__/ \__,_|\___|_|\_\    |___|_| |_|___/ .__/ \___|\___|\__|\___/|_|
-                                                                      |_|
-````
+[![Build Status](https://secure.travis-ci.org/kmalakoff/knockback-inspector.png)](http://travis-ci.org/kmalakoff/knockback-inspector)
 
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js
 
@@ -48,17 +41,14 @@ If you want to inspect a collection, set up the bindings like:
   </script>
 ````
 
-Building the library
+Building, Running and Testing the library
 -----------------------
 
-Installing:
+###Installing:
 
 1. install node.js: http://nodejs.org
 2. install node packages: (sudo) 'npm install'
 
-Commands:
+###Commands:
 
-1. 'cake build' - performs a single build
-2. 'cake watch' - automatically scans for and builds the project when changes are detected
-
-The library itself is in the root directory, but you can also build each tutorial individually using the Cakefile in their own directories.
+Look at: https://github.com/kmalakoff/easy-bake
