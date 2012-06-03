@@ -1,6 +1,5 @@
 class kbi.NodeViewModel
-  constructor: (name, opened, node) ->
-    @name = name
+  constructor: (@name, opened, node) ->
     @opened = ko.observable(opened)
     @node = ko.utils.unwrapObservable(node)
 
