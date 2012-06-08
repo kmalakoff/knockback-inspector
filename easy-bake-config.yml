@@ -24,16 +24,16 @@ tests:
 postinstall:
   copy_latest_underscore:
     command: 'cp'
-    args: ['node_modules/knockback/vendor/underscore-latest.js', 'vendor/underscore-latest.js']
+    args: ['knockback/vendor/underscore-latest.js', 'vendor/underscore-latest.js']
   copy_latest_backbone:
     command: 'cp'
-    args: ['node_modules/knockback/vendor/backbone-latest.js', 'vendor/backbone-latest.js']
+    args: ['knockback/vendor/backbone-latest.js', 'vendor/backbone-latest.js']
   copy_latest_backbone_relational:
     command: 'cp'
-    args: ['node_modules/knockback/vendor/backbone-relational-latest.js', 'vendor/backbone-relational-latest.js']
+    args: ['knockback/vendor/backbone-relational-latest.js', 'vendor/backbone-relational-latest.js']
   copy_latest_knockout:
     command: 'cp'
-    args: ['node_modules/knockback/vendor/knockout-latest.js', 'vendor/knockout-latest.js']
+    args: ['knockback/vendor/knockout-latest.js', 'vendor/knockout-latest.js']
   copy_latest_knockback:
     command: 'cp'
-    args: ['node_modules/knockback/knockback.js', 'vendor/knockback-latest.js']
+    args: ['knockback', 'vendor/knockback-latest.js']
