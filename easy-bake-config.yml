@@ -1,0 +1,39 @@
+library:
+  join: knockback-inspector.js
+  compress: true
+  files:
+    - src/lib/kbi_core.coffee
+    - src/view_models/kbi_node_view_model.coffee
+    - src/views/kbi_collection_node_view.coffee
+    - src/views/kbi_model_node_view.coffee
+    - src/lib/kbi_string_template_engine.coffee
+    - src/models/kbi_fetched.coffee
+
+tests:
+  output: ./build
+  directories:
+    - test/core
+    - test/packaging
+  options:
+    test:
+      command: phantomjs
+      runner: phantomjs-qunit-runner.js
+    build:
+      no_files_ok: ['test/packaging']
+
+postinstall:
+  copy_latest_underscore:
+    command: 'cp'
+    args: ['node_modules/knockback/vendor/underscore-latest.js', 'vendor/underscore-latest.js']
+  copy_latest_backbone:
+    command: 'cp'
+    args: ['node_modules/knockback/vendor/backbone-latest.js', 'vendor/backbone-latest.js']
+  copy_latest_backbone_relational:
+    command: 'cp'
+    args: ['node_modules/knockback/vendor/backbone-relational-latest.js', 'vendor/backbone-relational-latest.js']
+  copy_latest_knockout:
+    command: 'cp'
+    args: ['node_modules/knockback/vendor/knockout-latest.js', 'vendor/knockout-latest.js']
+  copy_latest_knockback:
+    command: 'cp'
+    args: ['node_modules/knockback/knockback.js', 'vendor/knockback-latest.js']

@@ -80,7 +80,7 @@
   //
   //     var object = {};
   //     _.extend(object, Backbone.Events);
-  //     object.on('expand', function(){ alert('opened'); });
+  //     object.on('expand', function(){ alert('expanded'); });
   //     object.trigger('expand');
   //
   var Events = Backbone.Events = {

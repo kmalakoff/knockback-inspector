@@ -2,9 +2,9 @@
 (function() {
 
   $(document).ready(function() {
-    var Backbone, kb, kbi, ko, _;
+    var Backbone, kb, kbi, ko, _, _ref;
     module("knockback-inspector");
-    _ = !window._ && (typeof require !== 'undefined') ? require('underscore') : window._;
+    _ = !window._ && (typeof require !== 'undefined') ? (_ref = require('underscore')) != null ? _ref._ : void 0 : window._;
     Backbone = !window.Backbone && (typeof require !== 'undefined') ? require('backbone') : window.Backbone;
     ko = !window.ko && (typeof require !== 'undefined') ? require('knockout') : window.ko;
     kb = !window.kb && (typeof require !== 'undefined') ? require('knockback') : window.kb;

@@ -11,11 +11,11 @@ Dependencies: Knockout.js, Underscore.js, Backbone.js, and Knockback.js.
 
 
 (function() {
-  var Backbone, kb, kbi, ko, _,
+  var Backbone, kb, kbi, ko, _, _ref,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  _ = !window._ && (typeof require !== 'undefined') ? require('underscore') : window._;
+  _ = !window._ && (typeof require !== 'undefined') ? (_ref = require('underscore')) != null ? _ref._ : void 0 : window._;
 
   Backbone = !window.Backbone && (typeof require !== 'undefined') ? require('backbone') : window.Backbone;
 
