@@ -10,7 +10,7 @@ library:
     - src/models/kbi_fetched.coffee
 
 tests:
-  output: ./build
+  output: build
   directories:
     - test/core
     - test/packaging
@@ -18,6 +18,8 @@ tests:
     test:
       command: phantomjs
       runner: phantomjs-qunit-runner.js
+      files:
+        - '**/*.html'
     build:
       no_files_ok: ['test/packaging']
 
