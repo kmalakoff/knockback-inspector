@@ -14,28 +14,26 @@ tests:
   directories:
     - test/core
     - test/packaging
-  options:
+  modes:
+    build:
+      bundles:
+        test/packaging/build/bundle.js:
+          underscore: underscore
+          backbone: backbone
+          backbone-relational: vendor/backbone-relational-latest.js
+          knockout: vendor/knockout-latest.js
+          knockback: knockback
+          knockback-inspector: knockback-inspector.js
+      no_files_ok: ['test/packaging']
     test:
       command: phantomjs
       runner: phantomjs-qunit-runner.js
       files:
         - '**/*.html'
-    build:
-      no_files_ok: ['test/packaging']
 
 postinstall:
-  copy_latest_underscore:
-    command: 'cp'
-    args: ['underscore', 'vendor/underscore-latest.js']
-  copy_latest_backbone:
-    command: 'cp'
-    args: ['backbone', 'vendor/backbone-latest.js']
-  copy_latest_backbone_relational:
-    command: 'cp'
-    args: ['knockback/vendor/backbone-relational-latest.js', 'vendor/backbone-relational-latest.js']
-  copy_latest_knockout:
-    command: 'cp'
-    args: ['knockback/vendor/knockout-latest.js', 'vendor/knockout-latest.js']
-  copy_latest_knockback:
-    command: 'cp'
-    args: ['knockback', 'vendor/knockback-latest.js']
+  commands:
+    - 'cp underscore vendor/underscore-latest.js'
+    - 'cp backbone vendor/backbone-latest.js'
+    - 'cp knockback vendor/knockback-latest.js'
+    - 'cp knockback/vendor/backbone-relational-latest.js vendor/backbone-relational-latest.js'
