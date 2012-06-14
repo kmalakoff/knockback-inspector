@@ -8,6 +8,15 @@ library:
     - src/views/kbi_model_node_view.coffee
     - src/lib/kbi_string_template_engine.coffee
     - src/models/kbi_fetched.coffee
+  modes:
+    build:
+      commands:
+        - 'cp knockback-inspector.js packages/npm/knockback-inspector.js'
+        - 'cp knockback-inspector.min.js packages/npm/knockback-inspector.min.js'
+        - 'cp knockback-inspector.css packages/npm/knockback-inspector.css'
+        - 'cp knockback-inspector.js packages/nuget/Content/Scripts/knockback-inspector.js'
+        - 'cp knockback-inspector.min.js packages/nuget/Content/Scripts/knockback-inspector.min.js'
+        - 'cp knockback-inspector.css packages/nuget/Content/Scripts/knockback-inspector.css'
 
 tests:
   output: build
@@ -35,5 +44,6 @@ postinstall:
   commands:
     - 'cp underscore vendor/underscore-latest.js'
     - 'cp backbone vendor/backbone-latest.js'
+    - 'cp backbone-relational vendor/backbone-relational-latest.js'
+    - 'cp knockout-client/knockout.debug.js vendor/knockout-latest.js'
     - 'cp knockback vendor/knockback-latest.js'
-    - 'cp knockback/vendor/backbone-relational-latest.js vendor/backbone-relational-latest.js'

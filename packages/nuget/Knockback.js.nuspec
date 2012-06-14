@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>0.1.0</version>
+    <authors>Kevin Malakoff</authors>
+    <owners />
+    <licenseUrl>https://github.com/kmalakoff/knockback-inspector/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kmalakoff/knockback-inspector</projectUrl>
+    <dependencies>
+      <dependency id="knockoutjs" version="2.0.0.1" />
+      <dependency id="Backbone.js" version="0.9.2" />
+      <dependency id="Knockback.js" version="0.15.1" />
+    </dependencies>
+    <id>Knockback-Inspector.js</id>
+    <title>Knockback-Inspector.js</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js.</description>
+    <summary>Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js.</summary>
+    <copyright>Copyright (c) 2012 Kevin Malakoff</copyright>
+    <tags>KnockoutInspector KnockoutInspectorJS Knockout-Inspector Knockout-InspectorJS Kockout KnockoutJS Knockout.js Knockback Backbone BackboneJS Bakcbone.js Javascript Coffeescript</tags>
+  </metadata>
+  <files>
+    <file src="content\Scripts\knockback-inspector.js" target="content\Scripts\knockback-inspector.js" />
+    <file src="content\Scripts\knockback-inspector.min.js" target="content\Scripts\knockback-inspector.min.js" />
+    <file src="content\Scripts\knockback-inspector.css" target="content\Scripts\knockback-inspector.css" />
+  </files>
+</package>

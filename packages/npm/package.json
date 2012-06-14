@@ -1,6 +1,6 @@
 {
   "author"        : {"name": "Kevin Malakoff", "url": "https://github.com/kmalakoff"},
-  "name"          : "knockback-inspector_dev",
+  "name"          : "knockback-inspector",
   "description"   : "Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js",
   "keywords"      : ["knockback-inspector", "knockbackjs-inspector", "knockback", "knockbackjs", "backbone", "backbonejs", "knockout", "knockoutjs"],
 
@@ -11,17 +11,13 @@
     "url": "http://github.com/kmalakoff/knockback-inspector.git"
   },
 
-  "scripts": {
-    "preinstall": "npm install coffee-script; npm install easy-bake@0.1.2",
-    "postinstall": "cake postinstall",
-    "test": "cake -c -b test"
-  },
   "optionalDependencies": {
     "underscore": "latest",
     "backbone": "latest",
     "backbone-relational": "latest",
     "backbone-modelref": "latest",
     "knockout-client": "latest",
+    "knockout": "latest",
     "knockback": "latest"
   },
 
