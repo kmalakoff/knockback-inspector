@@ -4,11 +4,10 @@ module.exports =
     compress: true
     files: [
       'src/lib/kbi_core.coffee'
-      'src/view_models/kbi_node_view_model.coffee'
-      'src/views/kbi_collection_node_view.coffee'
-      'src/views/kbi_model_node_view.coffee'
-      'src/lib/kbi_string_template_engine.coffee'
-      'src/models/kbi_fetched.coffee'
+      'src/lib/kbi_template_engine.coffee'
+      'src/models/**/*.coffee'
+      'src/view_models**/*.coffee'
+      'src/views**/*.coffee'
     ]
     modes:
       build:

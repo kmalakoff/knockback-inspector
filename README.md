@@ -1,8 +1,22 @@
 [![Build Status](https://secure.travis-ci.org/kmalakoff/knockback-inspector.png)](http://travis-ci.org/kmalakoff/knockback-inspector)
 
-Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js
+Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js,
 
-For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][1].
+You can get the library here:
+
+* [Development version][1]
+* [Production version][2]
+* [Styling][3]
+
+### Dependencies
+
+* [Knockback.js][4]
+* [Knockout.js][5]
+* [Backbone.js][6]
+* [Underscore.js][7]
+
+
+For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][8].
 
 For more information on Knockback.js, please look at the website: http://kmalakoff.github.com/knockback/
 
@@ -13,13 +27,14 @@ The Knockout-Inspector is designed as a small standalone library that you can in
 <link rel='stylesheet' href='knockback-inspector.css'>
 ```
 
-and include the depdendent scripts: [Knockback.js][2], [Knockout.js][3], [Backbone.js][4], and [Underscore.js][4].
-
-[1]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
-[2]: http://kmalakoff.github.com/knockback/
-[3]: https://github.com/SteveSanderson/knockout/downloads/
-[4]: http://documentcloud.github.com/backbone/
-[5]: http://documentcloud.github.com/underscore/
+[1]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector-0.1.1.js
+[2]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector-0.1.1.min.js
+[3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
+[4]: http://kmalakoff.github.com/knockback/
+[5]: https://github.com/SteveSanderson/knockout/downloads/
+[6]: http://documentcloud.github.com/backbone/
+[7]: http://documentcloud.github.com/underscore/
+[8]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
 
 If you want to inspect a model, set up the bindings like:
 

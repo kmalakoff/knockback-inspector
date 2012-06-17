@@ -2,7 +2,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-kbi.StringTemplateSource = (function() {
+kbi.TemplateSource = (function() {
 
   function StringTemplateSource(template_string) {
     this.template_string = template_string;
@@ -16,7 +16,7 @@ kbi.StringTemplateSource = (function() {
 
 })();
 
-kbi.StringTemplateEngine = (function(_super) {
+kbi.TemplateEngine = (function(_super) {
 
   __extends(StringTemplateEngine, _super);
 
@@ -27,9 +27,9 @@ kbi.StringTemplateEngine = (function(_super) {
   StringTemplateEngine.prototype.makeTemplateSource = function(template) {
     switch (template) {
       case 'kbi_model_node':
-        return new kbi.StringTemplateSource(kbi.ModelNodeView);
+        return new kbi.TemplateSource(kbi.ModelNodeView);
       case 'kbi_collection_node':
-        return new kbi.StringTemplateSource(kbi.CollectionNodeView);
+        return new kbi.TemplateSource(kbi.CollectionNodeView);
       default:
         return ko.nativeTemplateEngine.prototype.makeTemplateSource.apply(this, arguments);
     }

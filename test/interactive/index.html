@@ -5,27 +5,27 @@
   <title class='inspector_title' data-bind="text: title"></title>
 
   <!-- DEPENDENCIES -->
-  <script src='../vendor/jquery-1.7.2.js'></script>
-  <script src='../vendor/knockout-latest.js'></script>
-  <script src='../vendor/underscore-latest.js'></script>
-  <script src='../vendor/backbone-latest.js'></script>
-  <script src='../vendor/backbone-relational-latest.js'></script>
-  <script src='../vendor/knockback-latest.js'></script>
+  <script src='../../vendor/jquery-1.7.2.js'></script>
+  <script src='../../vendor/knockout-latest.js'></script>
+  <script src='../../vendor/underscore-latest.js'></script>
+  <script src='../../vendor/backbone-latest.js'></script>
+  <script src='../../vendor/backbone-relational-latest.js'></script>
+  <script src='../../vendor/knockback-latest.js'></script>
 
   <!-- KNOCKBACK-INSPECTOR LIBRARY -->
-  <script src='../knockback-inspector.min.js'></script>
+  <script src='../../knockback-inspector.js'></script>
 
   <!-- APPLICATION STYLING -->
   <style type='text/css'>
   #content {width: 800px; margin: 0 auto; background-color: #F5E0FF; border-radius: 5px;}
   h1 {text-align: center; font-size: 2em; color: #fff; background-color: #CC66FF; border-radius: 5px;}
   </style>
-  <link rel='stylesheet' href='../knockback-inspector.css'>
+  <link rel='stylesheet' href='../../knockback-inspector.css'>
 
   <!-- KNOCKOUT INITIALIZATION -->
   <script type='text/javascript'>
     // set the template engine so Knockout can find 'kbi_model_node' and 'kbi_collection_node' templates
-    ko.setTemplateEngine(new kbi.StringTemplateEngine());
+    ko.setTemplateEngine(new kbi.TemplateEngine());
   </script>
 
 </head>
