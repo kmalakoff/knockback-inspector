@@ -27,8 +27,10 @@ The Knockout-Inspector is designed as a small standalone library that you can in
 <link rel='stylesheet' href='knockback-inspector.css'>
 ```
 
-[1]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector-0.1.1.js
-[2]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector-0.1.1.min.js
+You can get the library here:
+
+[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.js
+[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.min.js
 [3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
 [4]: http://kmalakoff.github.com/knockback/
 [5]: https://github.com/SteveSanderson/knockout/downloads/
