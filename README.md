@@ -27,17 +27,6 @@ The Knockout-Inspector is designed as a small standalone library that you can in
 <link rel='stylesheet' href='knockback-inspector.css'>
 ```
 
-You can get the library here:
-
-[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.js
-[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.min.js
-[3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
-[4]: http://kmalakoff.github.com/knockback/
-[5]: https://github.com/SteveSanderson/knockout/downloads/
-[6]: http://documentcloud.github.com/backbone/
-[7]: http://documentcloud.github.com/underscore/
-[8]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
-
 If you want to inspect a model, set up the bindings like:
 
 ````
@@ -70,3 +59,12 @@ Building, Running and Testing the library
 ###Commands:
 
 Look at: https://github.com/kmalakoff/easy-bake
+
+[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.js
+[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.min.js
+[3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
+[4]: http://kmalakoff.github.com/knockback/
+[5]: https://github.com/SteveSanderson/knockout/downloads/
+[6]: http://documentcloud.github.com/backbone/
+[7]: http://documentcloud.github.com/underscore/
+[8]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
