@@ -25,11 +25,20 @@ module.exports =
     directories: [
       'test/core'
       'test/packaging'
+      'test/lodash'
     ]
     modes:
       build:
         bundles:
           'test/packaging/build/bundle.js':
+            underscore: 'underscore'
+            backbone: 'backbone'
+            'backbone-relational': 'vendor/backbone-relational-latest.js'
+            knockout: 'vendor/knockout-latest.js'
+            knockback: 'knockback'
+            'knockback-inspector': 'knockback-inspector.js'
+          'test/lodash/build/bundle-lodash.js':
+            lodash: 'vendor/lodash-0.3.2.js'
             underscore: 'underscore'
             backbone: 'backbone'
             'backbone-relational': 'vendor/backbone-relational-latest.js'
