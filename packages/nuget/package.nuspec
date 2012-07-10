@@ -20,8 +20,8 @@
     <tags>KnockoutInspector KnockoutInspectorJS Knockout-Inspector Knockout-InspectorJS Kockout KnockoutJS Knockout.js Knockback Backbone BackboneJS Bakcbone.js Javascript Coffeescript</tags>
   </metadata>
   <files>
-    <file src="content\Scripts\knockback-inspector.js" target="content\Scripts\knockback-inspector.js" />
-    <file src="content\Scripts\knockback-inspector.min.js" target="content\Scripts\knockback-inspector.min.js" />
-    <file src="content\Scripts\knockback-inspector.css" target="content\Scripts\knockback-inspector.css" />
+    <file src="content/Scripts/knockback-inspector.js" target="content/Scripts/knockback-inspector.js" />
+    <file src="content/Scripts/knockback-inspector.min.js" target="content/Scripts/knockback-inspector.min.js" />
+    <file src="content/Scripts/knockback-inspector.css" target="content/Scripts/knockback-inspector.css" />
   </files>
 </package>
