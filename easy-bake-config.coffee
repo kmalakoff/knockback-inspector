@@ -9,50 +9,37 @@ module.exports =
       'src/view_models**/*.coffee'
       'src/views**/*.coffee'
     ]
-    modes:
-      build:
-        commands: [
-          'cp knockback-inspector.js packages/npm/knockback-inspector.js'
-          'cp knockback-inspector.min.js packages/npm/knockback-inspector.min.js'
-          'cp knockback-inspector.css packages/npm/knockback-inspector.css'
-          'cp knockback-inspector.js packages/nuget/Content/Scripts/knockback-inspector.js'
-          'cp knockback-inspector.min.js packages/nuget/Content/Scripts/knockback-inspector.min.js'
-          'cp knockback-inspector.css packages/nuget/Content/Scripts/knockback-inspector.css'
-        ]
+    _build:
+      commands: [
+        'cp knockback-inspector.js packages/npm/knockback-inspector.js'
+        'cp knockback-inspector.min.js packages/npm/knockback-inspector.min.js'
+        'cp knockback-inspector.css packages/npm/knockback-inspector.css'
+        'cp knockback-inspector.js packages/nuget/Content/Scripts/knockback-inspector.js'
+        'cp knockback-inspector.min.js packages/nuget/Content/Scripts/knockback-inspector.min.js'
+        'cp knockback-inspector.css packages/nuget/Content/Scripts/knockback-inspector.css'
+      ]
 
   tests:
     output: 'build'
     directories: [
       'test/core'
-      'test/packaging'
-      'test/lodash'
     ]
-    modes:
-      build:
-        bundles:
-          'test/packaging/build/bundle.js':
-            underscore: 'underscore'
-            backbone: 'backbone'
-            'backbone-relational': 'vendor/backbone-relational-latest.js'
-            knockout: 'vendor/knockout-latest.js'
-            knockback: 'knockback'
-            'knockback-inspector': 'knockback-inspector.js'
-          'test/lodash/build/bundle-lodash.js':
-            lodash: 'vendor/lodash-0.3.2.js'
-            backbone: 'backbone'
-            'backbone-relational': 'vendor/backbone-relational-latest.js'
-            knockout: 'vendor/knockout-latest.js'
-            knockback: 'knockback'
-            'knockback-inspector': 'knockback-inspector.js'
-            _alias:
-              underscore: 'lodash'
-        no_files_ok: 'test/packaging'
-      test:
-        command: 'phantomjs'
-        runner: 'phantomjs-qunit-runner.js'
-        files: '**/*.html'
+    _build:
+      commands: [
+        'mbundle test/packaging/bundle-config.coffee'
+        'mbundle test/lodash/bundle-config.coffee'
+      ]
+    _test:
+      command: 'phantomjs'
+      runner: 'phantomjs-qunit-runner.js'
+      files: '**/*.html'
+      directories: [
+        'test/core'
+        'test/packaging'
+        'test/lodash'
+      ]
 
-  postinstall:
+  _postinstall:
     commands: [
       'cp underscore vendor/underscore-latest.js'
       'cp backbone vendor/backbone-latest.js'
