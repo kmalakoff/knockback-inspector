@@ -14,6 +14,7 @@ module.exports =
         'cp knockback-inspector.js packages/npm/knockback-inspector.js'
         'cp knockback-inspector.min.js packages/npm/knockback-inspector.min.js'
         'cp knockback-inspector.css packages/npm/knockback-inspector.css'
+        'cp README.md packages/npm/README.md'
         'cp knockback-inspector.js packages/nuget/Content/Scripts/knockback-inspector.js'
         'cp knockback-inspector.min.js packages/nuget/Content/Scripts/knockback-inspector.min.js'
         'cp knockback-inspector.css packages/nuget/Content/Scripts/knockback-inspector.css'

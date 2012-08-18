@@ -6,16 +6,16 @@ class kbi.ModelNodeViewGenerator
       #{@nodeManipulator(binding_context)}
         <!-- ko if: opened -->
           <!-- ko foreach: attribute_names -->
-            <!-- ko if: ($parent.attributeType($data) == 'simple') -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->
               #{@attributeEditor(binding_context)}
             <!-- /ko -->
 
-            <!-- ko if: ($parent.attributeType($data) == 'model') -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->
               #{@modelTree(binding_context)}
             <!-- /ko -->
 
-            <!-- ko if: ($parent.attributeType($data) == 'collection') -->
-              #{@modelTree(binding_context)}
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->
+              #{@collectionTree(binding_context)}
             <!-- /ko -->
 
           <!-- /ko -->

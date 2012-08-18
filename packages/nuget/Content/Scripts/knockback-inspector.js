@@ -160,29 +160,20 @@ Dependencies: Knockout.js, Underscore.js, Backbone.js, and Knockback.js.
   kbi.NodeViewModel = (function() {
 
     function NodeViewModel(name, opened, node) {
-      var model;
+      var model, node_value;
       this.name = name;
       this.opened = ko.observable(opened);
-      this.node = ko.utils.unwrapObservable(node);
-      if (this.node instanceof kb.ViewModel) {
+      node_value = ko.utils.unwrapObservable(node);
+      if (node_value instanceof kb.ViewModel) {
+        this.node = node_value;
         model = kb.utils.wrappedModel(this.node);
         this.attribute_names = ko.observableArray(model ? _.keys(model.attributes) : []);
+      } else {
+        this.node = node;
       }
       this;
 
     }
-
-    NodeViewModel.prototype.attributeType = function(key) {
-      var attribute_connector;
-      attribute_connector = this.node[key];
-      if (ko.utils.unwrapObservable(attribute_connector) instanceof kb.ViewModel) {
-        return 'model';
-      }
-      if (kb.utils.observableInstanceOf(attribute_connector, kb.CollectionAttributeConnector)) {
-        return 'collection';
-      }
-      return 'simple';
-    };
 
     return NodeViewModel;
 
@@ -229,7 +220,7 @@ Dependencies: Knockout.js, Underscore.js, Backbone.js, and Knockback.js.
     }
 
     ModelNodeViewGenerator.prototype.viewText = function(binding_context) {
-      return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: ($parent.attributeType($data) == 'simple') -->\n        " + (this.attributeEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: ($parent.attributeType($data) == 'model') -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: ($parent.attributeType($data) == 'collection') -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
+      return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->\n        " + (this.attributeEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
     };
 
     ModelNodeViewGenerator.prototype.nodeStart = function(binding_context) {
