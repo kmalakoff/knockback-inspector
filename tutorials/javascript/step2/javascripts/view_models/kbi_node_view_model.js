@@ -10,15 +10,5 @@ kbi.NodeViewModel = function(name, opened, node) {
   }
 };
 
-kbi.NodeViewModel.prototype.attributeType = function(key) {
-  var attribute_connector = this.node[key];
-  if (ko.utils.unwrapObservable(attribute_connector) instanceof kb.ViewModel)
-    return 'model';
-  else if (kb.utils.observableInstanceOf(attribute_connector, kb.CollectionAttributeConnector))
-    return 'collection';
-  else
-    return 'simple';
-};
-
 // factory
 kbi.nodeViewModel = kbi.nvm = function(name, opened, node) { return new kbi.NodeViewModel(name, opened, node); };

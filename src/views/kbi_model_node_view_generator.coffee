@@ -6,15 +6,15 @@ class kbi.ModelNodeViewGenerator
       #{@nodeManipulator(binding_context)}
         <!-- ko if: opened -->
           <!-- ko foreach: attribute_names -->
-            <!-- ko if: (kb.utils.valueType($parent.node[$data]) < KB_TYPE_MODEL) -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) < kb.TYPE_MODEL) -->
               #{@attributeEditor(binding_context)}
             <!-- /ko -->
 
-            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == KB_TYPE_MODEL) -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->
               #{@modelTree(binding_context)}
             <!-- /ko -->
 
-            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == KB_TYPE_COLLECTION) -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->
               #{@collectionTree(binding_context)}
             <!-- /ko -->
 
