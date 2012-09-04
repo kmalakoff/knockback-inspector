@@ -60,8 +60,8 @@ Building, Running and Testing the library
 
 Look at: https://github.com/kmalakoff/easy-bake
 
-[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.js
-[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.3/knockback-inspector.min.js
+[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.4/knockback-inspector.js
+[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.4/knockback-inspector.min.js
 [3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
 [4]: http://kmalakoff.github.com/knockback/
 [5]: https://github.com/SteveSanderson/knockout/downloads/
