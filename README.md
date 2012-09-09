@@ -69,4 +69,4 @@ Look at: https://github.com/kmalakoff/easy-bake
 [5]: https://github.com/SteveSanderson/knockout/downloads/
 [6]: http://documentcloud.github.com/backbone/
 [7]: http://documentcloud.github.com/underscore/
-[8]: http://kmalakoff.github.com/knockback/tutorial_inspector_library.html
+[8]: http://kmalakoff.github.com/knockback/tutorial_knockback_inspector.html
