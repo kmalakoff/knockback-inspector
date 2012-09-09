@@ -1,5 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/kmalakoff/knockback-inspector.png)](http://travis-ci.org/kmalakoff/knockback-inspector)
 
+![logo](https://github.com/kmalakoff/knockback-inspector/raw/master/media/logo.png)
+
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js,
 
 You can get the library here:

@@ -42,9 +42,7 @@ module.exports =
 
   _postinstall:
     commands: [
-      'cp underscore vendor/underscore-latest.js'
-      'cp backbone vendor/backbone-latest.js'
-      'cp backbone-relational vendor/backbone-relational-latest.js'
-      'cp knockout-client/knockout.debug.js vendor/knockout-latest.js'
-      'cp knockback vendor/knockback-latest.js'
+      'cp -v knockback/knockback-core-stack.js vendor/knockback-core-stack.js'
+      'cp -v backbone-relational vendor/backbone-relational.js'
+      'cp -v lodash vendor/lodash.js'
     ]
