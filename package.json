@@ -23,9 +23,11 @@
     "easy-bake": "0.1.8"
   },
   "dependencies": {
+    "backbone": ">=0.9.2",
+    "knockout-client": ">=2.1.0",
+    "backbone-relational": ">=0.6.0",
+    "backbone-modelref": ">=0.1.4",
     "knockback": "=0.16.2beta1",
-    "backbone-relational": ">=0.5.0",
-    "backbone-modelref": ">=0.1.2",
     "lodash": ">=0.6.1"
   },
 
