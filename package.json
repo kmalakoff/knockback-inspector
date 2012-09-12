@@ -27,7 +27,7 @@
     "knockout-client": ">=2.1.0",
     "backbone-relational": ">=0.6.0",
     "backbone-modelref": ">=0.1.4",
-    "knockback": "=0.16.2",
+    "knockback": ">=0.16.3",
     "lodash": ">=0.6.1"
   },
 
