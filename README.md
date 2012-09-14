@@ -12,6 +12,12 @@ Knockback-Inspector.js provides an inspector tree view library for Backbone.Mode
 
 Please see the [release notes](https://github.com/kmalakoff/knockback-inspector/blob/master/RELEASE_NOTES.md) for upgrade pointers.
 
+###Module Loading
+
+Knockback-Inspector.js is compatible with Require.js and AMD module loading. Module names:
+
+* 'knockback-inspector' - knockback-inspector.js.
+
 ### Dependencies
 
 * [Knockback.js](http://kmalakoff.github.com/knockback/)
