@@ -2,15 +2,13 @@ $(document).ready( ->
   module("knockback-inspector")
 
   # import Underscore (or Lo-Dash with precedence), Backbone, Knockout, and Knockback
-  if (typeof(require) != 'undefined') then _ = require('underscore') else _ = window._
-  _ = _._ if _ and (_.hasOwnProperty('_')) # LEGACY
   Backbone = if not window.Backbone and (typeof(require) != 'undefined') then require('backbone') else window.Backbone
   ko = if not window.ko and (typeof(require) != 'undefined') then require('knockout') else window.ko
   kb = if not window.kb and (typeof(require) != 'undefined') then require('knockback') else window.kb
   kbi = if not window.kbi and (typeof(require) != 'undefined') then require('knockback-inspector') else window.kbi
 
   test("TEST DEPENDENCY MISSING", ->
-    ok(!!ko); ok(!!_); ok(!!Backbone); ok(!!kb); ok(!!kbi)
+    ok(!!Backbone); ok(!!ko); ok(!!kb); ok(!!kbi)
   )
 
   # make kbi global so can be accessed by templates
@@ -35,9 +33,5 @@ $(document).ready( ->
 
     your_collection = new Backbone.Collection([{name: 'Hello', place: 'World!'}, {name: 'Goodbye', place: 'Samsara!'}])
     ko.applyBindings(kb.collectionObservable(your_collection, {view_model: kb.ViewModel}), $(html)[0]);
-  )
-
-  test("Error cases", ->
-    # TODO
   )
 )

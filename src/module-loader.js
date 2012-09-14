@@ -14,5 +14,5 @@
     else {
       return factory.call(this);
     }
-  })(function() {'__REPLACE__'; return kb;});
+  })(function() {'__REPLACE__'; return kbi;});
 }).call(this);

@@ -1,6 +1,6 @@
 module.exports =
   'test/lodash/build/bundle-lodash.js':
-    lodash: 'vendor/lodash-0.6.1.js'
+    lodash: 'vendor/lodash-0.7.0.js'
     backbone: 'backbone'
     'backbone-relational': 'backbone-relational'
     knockout: 'knockout-client/knockout.debug.js'

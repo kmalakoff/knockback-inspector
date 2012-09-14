@@ -28,7 +28,7 @@ var Backbone, kb, kbi, ko, _,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-if (typeof require !== 'undefined') {
+if (!this._ && (typeof require !== 'undefined')) {
   try {
     _ = require('lodash');
   } catch (e) {
@@ -38,15 +38,13 @@ if (typeof require !== 'undefined') {
   _ = this._;
 }
 
-if (_ && (_.hasOwnProperty('_'))) {
-  _ = _._;
-}
+_ = _.hasOwnProperty('_') ? _._ : _;
 
-Backbone = !window.Backbone && (typeof require !== 'undefined') ? require('backbone') : window.Backbone;
+Backbone = !this.Backbone && (typeof require !== 'undefined') ? require('backbone') : this.Backbone;
 
-ko = !window.ko && (typeof require !== 'undefined') ? require('knockout') : window.ko;
+ko = !this.ko && (typeof require !== 'undefined') ? require('knockout') : this.ko;
 
-kb = !window.kb && (typeof require !== 'undefined') ? require('knockback') : window.kb;
+kb = !this.kb && (typeof require !== 'undefined') ? require('knockback') : this.kb;
 
 kbi = this.kbi = typeof exports !== 'undefined' ? exports : {};
 
@@ -277,5 +275,5 @@ kbi.ViewHTML = (function() {
   return ViewHTML;
 
 })();
-; return kb;});
+; return kbi;});
 }).call(this);
