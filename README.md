@@ -4,21 +4,24 @@
 
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js,
 
-You can get the library here:
+#Download Latest (0.1.5):
 
-* [Development version][1]
-* [Production version][2]
-* [Styling][3]
+* [Development version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.5/knockback-inspector.js)
+* [Production version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.5/knockback-inspector.min.js)
+* [Styling](http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css)
+
+Please see the [release notes](https://github.com/kmalakoff/knockback-inspector/blob/master/RELEASE_NOTES.md) for upgrade pointers.
 
 ### Dependencies
 
-* [Knockback.js][4]
-* [Knockout.js][5]
-* [Backbone.js][6]
-* [Underscore.js][7]
+* [Knockback.js](http://kmalakoff.github.com/knockback/)
+* [Knockout.js](https://github.com/SteveSanderson/knockout/downloads/)
+* [Backbone.js](http://documentcloud.github.com/backbone/)
+* [Underscore.js](http://documentcloud.github.com/underscore/)
 
 
-For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial][8].
+For a step-by-step guide to creating and using Knockback-Inspector, please take a look at the [full tutorial](http://kmalakoff.github.com/knockback/tutorial_knockback_inspector.html
+).
 
 For more information on Knockback.js, please look at the website: http://kmalakoff.github.com/knockback/
 
@@ -61,12 +64,3 @@ Building, Running and Testing the library
 ###Commands:
 
 Look at: https://github.com/kmalakoff/easy-bake
-
-[1]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.4/knockback-inspector.js
-[2]: https://raw.github.com/kmalakoff/knockback-inspector/0.1.4/knockback-inspector.min.js
-[3]: http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css
-[4]: http://kmalakoff.github.com/knockback/
-[5]: https://github.com/SteveSanderson/knockout/downloads/
-[6]: http://documentcloud.github.com/backbone/
-[7]: http://documentcloud.github.com/underscore/
-[8]: http://kmalakoff.github.com/knockback/tutorial_knockback_inspector.html

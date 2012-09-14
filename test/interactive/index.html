@@ -83,7 +83,7 @@
       <li class='kbi'>
         <fieldset class='kbi'>
           <label>URL</label>
-          <input type='text' data-bind="value: url">
+          <input type='text' data-bind="value: url, valueUpdate: 'keyup'">
         </fieldset>
         <ul class='kbi' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, collection)}"></ul>
       </li>

@@ -26,11 +26,11 @@
     "backbone": ">=0.9.2",
     "knockout-client": ">=2.1.0",
     "backbone-relational": ">=0.6.0",
-    "backbone-modelref": ">=0.1.4",
+    "backbone-modelref": ">=0.1.5",
     "knockback": ">=0.16.5",
     "lodash": ">=0.6.1"
   },
 
   "main"          : "knockback-inspector.js",
-  "version"       : "0.1.4"
+  "version"       : "0.1.5"
 }

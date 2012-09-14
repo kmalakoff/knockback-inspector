@@ -14,9 +14,9 @@
   "dependencies": {
     "knockback": ">=0.16.5",
     "backbone-relational": ">=0.5.0",
-    "backbone-modelref": ">=0.1.4"
+    "backbone-modelref": ">=0.1.5"
   },
 
   "main"          : "knockback-inspector.js",
-  "version"       : "0.1.4"
+  "version"       : "0.1.5"
 }

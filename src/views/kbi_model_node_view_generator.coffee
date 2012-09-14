@@ -35,7 +35,7 @@ class kbi.ModelNodeViewGenerator
   attributeEditor: (binding_context) ->
     return """<fieldset class='kbi'>
       <label data-bind="text: $data"></label>
-      <input type='text' data-bind="value: $parent.node[$data]">
+      <input type='text' data-bind="value: $parent.node[$data], valueUpdate: 'keyup'">
     </fieldset>"""
 
   modelTree: (binding_context) ->

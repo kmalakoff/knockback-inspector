@@ -11,7 +11,7 @@ kbi.ModelNodeView = """
       <!-- ko if: (kb.utils.valueType($parent.node[$data]) < kb.TYPE_MODEL) -->
         <fieldset class='kbi'>
           <label data-bind="text: $data"> </label>
-          <input type='text' data-bind="value: $parent.node[$data]">
+          <input type='text' data-bind="value: $parent.node[$data], valueUpdate: 'keyup'">
         </fieldset>
       <!-- /ko -->
 

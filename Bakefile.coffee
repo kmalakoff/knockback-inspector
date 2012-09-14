@@ -1,6 +1,7 @@
 module.exports =
   library:
     join: 'knockback-inspector.js'
+    wrapper: 'src/module-loader.js'
     compress: true
     files: [
       'src/lib/kbi_core.coffee'
