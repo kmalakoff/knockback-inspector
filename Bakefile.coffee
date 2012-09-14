@@ -47,6 +47,7 @@ module.exports =
       'cp -v backbone-relational vendor/backbone-relational.js'
       'cp -v lodash vendor/lodash.js'
 
+      # amd tests
       'cp -v underscore test/vendor/underscore.js'
       'cp -v backbone test/vendor/backbone.js'
       'cp -v knockout-client/knockout.debug.js test/vendor/knockout.js'

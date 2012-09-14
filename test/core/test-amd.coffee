@@ -3,10 +3,11 @@ $(document).ready( ->
 
   # Knockback and depdenencies
   require(['underscore', 'backbone', 'knockout', 'knockback', 'knockback-inspector'], (_, Backbone, ko, kb, kbi) ->
+    _ or (_ = kb._)
     Backbone or (Backbone = kb.Backbone)
 
     test("TEST DEPENDENCY MISSING", ->
-      ok(!!Backbone); ok(!!ko); ok(!!kb); ok(!!kbi)
+      ok(!!_); ok(!!Backbone); ok(!!ko); ok(!!kb); ok(!!kbi)
     )
 
     # make kbi global so can be accessed by templates
