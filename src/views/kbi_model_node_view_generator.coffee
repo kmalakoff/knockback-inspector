@@ -6,8 +6,12 @@ class kbi.ModelNodeViewGenerator
       #{@nodeManipulator(binding_context)}
         <!-- ko if: opened -->
           <!-- ko foreach: attribute_names -->
-            <!-- ko if: (kb.utils.valueType($parent.node[$data]) < kb.TYPE_MODEL) -->
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->
               #{@attributeEditor(binding_context)}
+            <!-- /ko -->
+
+            <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_ARRAY) -->
+              #{@attributeArrayEditor(binding_context)}
             <!-- /ko -->
 
             <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->
@@ -33,10 +37,19 @@ class kbi.ModelNodeViewGenerator
     </div>"""
 
   attributeEditor: (binding_context) ->
-    return """<fieldset class='kbi'>
+    return """
+    <fieldset class='kbi'>
       <label data-bind="text: $data"></label>
       <input type='text' data-bind="value: $parent.node[$data], valueUpdate: 'keyup'">
-    </fieldset>"""
+    </fieldset>
+    """
+
+  attributeArrayEditor: (binding_context) ->
+    return """
+    <!-- ko foreach: $parent.node[$data] -->
+      #{@attributeEditor(binding_context)}
+    <!-- /ko  -->
+    """
 
   modelTree: (binding_context) ->
     return """#{kbi.ViewHTML.modelTree('$data', false, "$parent.node[$data]")}"""

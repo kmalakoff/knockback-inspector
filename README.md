@@ -14,7 +14,7 @@ Please see the [release notes](https://github.com/kmalakoff/knockback-inspector/
 
 ###Module Loading
 
-Knockback-Inspector.js is compatible with Require.js and AMD module loading. Module names:
+Knockback-Inspector.js is compatible with RequireJS, CommonJS, Brunch and AMD module loading. Module names:
 
 * 'knockback-inspector' - knockback-inspector.js.
 

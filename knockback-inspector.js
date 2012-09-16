@@ -229,7 +229,7 @@ kbi.ModelNodeViewGenerator = (function() {
   }
 
   ModelNodeViewGenerator.prototype.viewText = function(binding_context) {
-    return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) < kb.TYPE_MODEL) -->\n        " + (this.attributeEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->\n        " + (this.collectionTree(binding_context)) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
+    return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->\n        " + (this.attributeEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_ARRAY) -->\n        " + (this.attributeArrayEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->\n        " + (this.collectionTree(binding_context)) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
   };
 
   ModelNodeViewGenerator.prototype.nodeStart = function(binding_context) {
@@ -242,6 +242,10 @@ kbi.ModelNodeViewGenerator = (function() {
 
   ModelNodeViewGenerator.prototype.attributeEditor = function(binding_context) {
     return "<fieldset class='kbi'>\n  <label data-bind=\"text: $data\"></label>\n  <input type='text' data-bind=\"value: $parent.node[$data], valueUpdate: 'keyup'\">\n</fieldset>";
+  };
+
+  ModelNodeViewGenerator.prototype.attributeArrayEditor = function(binding_context) {
+    return "<!-- ko foreach: $parent.node[$data] -->\n  " + (this.attributeEditor(binding_context)) + "\n<!-- /ko  -->";
   };
 
   ModelNodeViewGenerator.prototype.modelTree = function(binding_context) {
