@@ -7721,7 +7721,7 @@ kb.inject = function(data, view_model, element, value_accessor, all_bindings_acc
 };
 
 kb.injectViewModels = function(root) {
-  var app, data, expression, findElements, options, results, _i, _len;
+  var afterBinding, app, beforeBinding, data, expression, findElements, options, results, _i, _len;
   results = [];
   findElements = function(el) {
     var attr, child_el, _i, _len, _ref;
@@ -7751,14 +7751,17 @@ kb.injectViewModels = function(root) {
       data = buildEvalWithinScopeFunction(expression, 0)();
       data || (data = {});
       (!data.options) || (options = data.options, delete data.options);
+      options || (options = {});
       app.view_model = kb.inject(data, app.view_model, app.el, null, null, true);
+      afterBinding = app.view_model.afterBinding || options.afterBinding;
+      beforeBinding = app.view_model.beforeBinding || options.beforeBinding;
     }
-    if (options && options.beforeBinding) {
-      options.beforeBinding(app.view_model, app.el, options);
+    if (beforeBinding) {
+      beforeBinding(app.view_model, app.el, options);
     }
     kb.applyBindings(app.view_model, app.el, options);
-    if (options && options.afterBinding) {
-      options.afterBinding(app.view_model, app.el, options);
+    if (afterBinding) {
+      afterBinding(app.view_model, app.el, options);
     }
   }
   return results;
