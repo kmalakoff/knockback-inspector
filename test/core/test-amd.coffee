@@ -1,7 +1,7 @@
 $(document).ready( ->
   module("knockback-defaults-amd.js")
 
-  # Knockback and depdenencies
+  # library and dependencies
   require(['underscore', 'backbone', 'knockout', 'knockback', 'knockback-inspector'], (_, Backbone, ko, kb, kbi) ->
     _ or= @_
     Backbone or= @Backbone
