@@ -172,17 +172,22 @@ kbi.FetchedCollection = (function(_super) {
 kbi.NodeViewModel = (function() {
 
   function NodeViewModel(name, opened, node) {
-    var model;
+    var model, node_value;
     this.name = name;
     this.node = node;
     this.opened = ko.observable(opened);
-    if (ko.utils.unwrapObservable(this.node) instanceof kb.ViewModel) {
-      this.node = ko.utils.unwrapObservable(this.node);
+    node_value = ko.utils.unwrapObservable(this.node);
+    if (node_value instanceof kb.ViewModel) {
+      this.node = node_value;
       model = kb.utils.wrappedModel(this.node);
       this.attribute_names = ko.observableArray(model ? _.keys(model.attributes) : []);
+    } else if ((typeof node_value.get === 'function') && (typeof node_value.trigger === 'function')) {
+      this.node = kb.viewModel(node_value);
+      this.attribute_names = ko.observableArray(_.keys(node_value.attributes));
+    } else if (node_value.models) {
+      this.node = kb.collectionObservable(node_value);
     }
-    this;
-
+    return;
   }
 
   return NodeViewModel;
@@ -200,15 +205,15 @@ kbi.ArrayNodeViewGenerator = (function() {
   }
 
   ArrayNodeViewGenerator.prototype.viewText = function() {
-    return "" + (this.nodeStart()) + "\n" + (this.nodeManipulator()) + "\n  <!-- ko foreach: $data -->\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_SIMPLE) -->\n      " + (this.attributeEditor()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_ARRAY) -->\n      " + (this.arrayTree()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_MODEL) -->\n      " + (this.modelTree()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_COLLECTION) -->\n      " + (this.collectionTree()) + "\n    <!-- /ko -->\n\n  <!-- /ko -->\n" + (this.nodeEnd());
+    return "" + (this.nodeStart()) + "\n" + (this.nodeManipulator()) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: node -->\n      <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_SIMPLE) -->\n        " + (this.attributeEditor()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_ARRAY) -->\n        " + (this.arrayTree()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_MODEL) -->\n        " + (this.modelTree()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_COLLECTION) -->\n        " + (this.collectionTree()) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd());
   };
 
   ArrayNodeViewGenerator.prototype.nodeStart = function() {
-    return '';
+    return "<li class='kbi' data-bind=\"css: {opened: opened, closed: !opened()}\">";
   };
 
   ArrayNodeViewGenerator.prototype.nodeManipulator = function() {
-    return '';
+    return "<div class='array' data-bind=\"click: function(){ opened(!opened()) }\">\n  <span data-bind=\"text: (opened() ? '- ' : '+ ' )\"></span>\n  <span data-bind=\"text: name\"></span>\n</div>";
   };
 
   ArrayNodeViewGenerator.prototype.attributeEditor = function() {
@@ -216,15 +221,15 @@ kbi.ArrayNodeViewGenerator = (function() {
   };
 
   ArrayNodeViewGenerator.prototype.arrayTree = function() {
-    return "" + (kbi.ViewHTML.arrayTree('', false, "$data"));
+    return "" + (kbi.ViewHTML.arrayTree("'['+$index()+'] (array)'", false, "$data"));
   };
 
   ArrayNodeViewGenerator.prototype.modelTree = function() {
-    return "" + (kbi.ViewHTML.modelTree('', false, "$data"));
+    return "" + (kbi.ViewHTML.modelTree("'['+$index()+'] (model)'", false, "$data"));
   };
 
   ArrayNodeViewGenerator.prototype.collectionTree = function() {
-    return "" + (kbi.ViewHTML.collectionTree('', true, "$data"));
+    return "" + (kbi.ViewHTML.collectionTree("'['+$index()+'] (collection)'", false, "$data"));
   };
 
   ArrayNodeViewGenerator.prototype.nodeEnd = function() {
@@ -258,7 +263,7 @@ kbi.CollectionNodeViewGenerator = (function() {
   };
 
   CollectionNodeViewGenerator.prototype.nodeEnd = function() {
-    return "</li>";
+    return '</li>';
   };
 
   return CollectionNodeViewGenerator;
@@ -300,7 +305,7 @@ kbi.ModelNodeViewGenerator = (function() {
   };
 
   ModelNodeViewGenerator.prototype.nodeEnd = function() {
-    return "</li>";
+    return '</li>';
   };
 
   return ModelNodeViewGenerator;
@@ -310,6 +315,10 @@ kbi.ModelNodeViewGenerator = (function() {
 kbi.ViewHTML = (function() {
 
   function ViewHTML() {}
+
+  ViewHTML.arrayTree = function(name, opened, node) {
+    return "<ul class='kbi' data-bind=\"template: {name: 'kbi_array_node', data: kbi.nvm(" + name + ", " + opened + ", " + node + ")}\"></ul>";
+  };
 
   ViewHTML.modelTree = function(name, opened, node) {
     return "<ul class='kbi' data-bind=\"template: {name: 'kbi_model_node', data: kbi.nvm(" + name + ", " + opened + ", " + node + ")}\"></ul>";
