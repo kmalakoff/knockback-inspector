@@ -1,42 +1,42 @@
 class kbi.ModelNodeViewGenerator
   constructor: (@template_name) ->
-  viewText: (binding_context) ->
+  viewText: ->
     return """
-      #{@nodeStart(binding_context)}
-      #{@nodeManipulator(binding_context)}
+      #{@nodeStart()}
+      #{@nodeManipulator()}
         <!-- ko if: opened -->
           <!-- ko foreach: attribute_names -->
             <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->
-              #{@attributeEditor(binding_context)}
+              #{@attributeEditor()}
             <!-- /ko -->
 
             <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_ARRAY) -->
-              #{@attributeArrayEditor(binding_context)}
+              #{@arrayTree()}
             <!-- /ko -->
 
             <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->
-              #{@modelTree(binding_context)}
+              #{@modelTree()}
             <!-- /ko -->
 
             <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->
-              #{@collectionTree(binding_context)}
+              #{@collectionTree()}
             <!-- /ko -->
 
           <!-- /ko -->
         <!-- /ko -->
-      #{@nodeEnd(binding_context)}
+      #{@nodeEnd()}
       """
 
-  nodeStart: (binding_context) ->
+  nodeStart: ->
     return """<li class='kbi' data-bind="css: {opened: opened, closed: !opened()}">"""
 
-  nodeManipulator: (binding_context) ->
+  nodeManipulator: ->
     return """<div class='collection' data-bind="click: function(){ opened(!opened()) }">
       <span data-bind="text: (opened() ? '- ' : '+ ' )"></span>
       <span data-bind="text: name"></span>
     </div>"""
 
-  attributeEditor: (binding_context) ->
+  attributeEditor: ->
     return """
     <fieldset class='kbi'>
       <label data-bind="text: $data"></label>
@@ -44,18 +44,13 @@ class kbi.ModelNodeViewGenerator
     </fieldset>
     """
 
-  attributeArrayEditor: (binding_context) ->
-    return """
-    <!-- ko foreach: $parent.node[$data] -->
-      #{@attributeEditor(binding_context)}
-    <!-- /ko  -->
-    """
+  arrayTree: ->
+    return """#{kbi.ViewHTML.arrayTree('$data', false, "$parent.node[$data]")}"""
 
-  modelTree: (binding_context) ->
+  modelTree: ->
     return """#{kbi.ViewHTML.modelTree('$data', false, "$parent.node[$data]")}"""
 
-  collectionTree: (binding_context) ->
+  collectionTree: ->
     return """#{kbi.ViewHTML.collectionTree("$data+'[]'", true, "$parent.node[$data]")}"""
 
-  nodeEnd: (binding_context) ->
-    return """</li>"""
+  nodeEnd: -> return '</li>'

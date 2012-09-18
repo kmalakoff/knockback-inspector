@@ -82,6 +82,7 @@ kbi.TemplateEngine = (function(_super) {
   function TemplateEngine() {
     this.allowTemplateRewriting = false;
     this.generators = {
+      kbi_array_node: kbi.ArrayNodeViewGenerator,
       kbi_model_node: kbi.ModelNodeViewGenerator,
       kbi_collection_node: kbi.CollectionNodeViewGenerator
     };
@@ -192,29 +193,71 @@ kbi.nodeViewModel = kbi.nvm = function(name, opened, node) {
   return new kbi.NodeViewModel(name, opened, node);
 };
 
+kbi.ArrayNodeViewGenerator = (function() {
+
+  function ArrayNodeViewGenerator(template_name) {
+    this.template_name = template_name;
+  }
+
+  ArrayNodeViewGenerator.prototype.viewText = function() {
+    return "" + (this.nodeStart()) + "\n" + (this.nodeManipulator()) + "\n  <!-- ko foreach: $data -->\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_SIMPLE) -->\n      " + (this.attributeEditor()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_ARRAY) -->\n      " + (this.arrayTree()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_MODEL) -->\n      " + (this.modelTree()) + "\n    <!-- /ko -->\n\n    <!-- ko if: (kb.utils.valueType($data) == kb.TYPE_COLLECTION) -->\n      " + (this.collectionTree()) + "\n    <!-- /ko -->\n\n  <!-- /ko -->\n" + (this.nodeEnd());
+  };
+
+  ArrayNodeViewGenerator.prototype.nodeStart = function() {
+    return '';
+  };
+
+  ArrayNodeViewGenerator.prototype.nodeManipulator = function() {
+    return '';
+  };
+
+  ArrayNodeViewGenerator.prototype.attributeEditor = function() {
+    return "<fieldset class='kbi'>\n  <label data-bind=\"text: '['+$index()+']'\"></label>\n  <input type='text' data-bind=\"value: $data, valueUpdate: 'keyup'\">\n</fieldset>";
+  };
+
+  ArrayNodeViewGenerator.prototype.arrayTree = function() {
+    return "" + (kbi.ViewHTML.arrayTree('', false, "$data"));
+  };
+
+  ArrayNodeViewGenerator.prototype.modelTree = function() {
+    return "" + (kbi.ViewHTML.modelTree('', false, "$data"));
+  };
+
+  ArrayNodeViewGenerator.prototype.collectionTree = function() {
+    return "" + (kbi.ViewHTML.collectionTree('', true, "$data"));
+  };
+
+  ArrayNodeViewGenerator.prototype.nodeEnd = function() {
+    return '';
+  };
+
+  return ArrayNodeViewGenerator;
+
+})();
+
 kbi.CollectionNodeViewGenerator = (function() {
 
   function CollectionNodeViewGenerator(template_name) {
     this.template_name = template_name;
   }
 
-  CollectionNodeViewGenerator.prototype.viewText = function(binding_context) {
-    return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: node -->\n      " + (this.modelNode(binding_context)) + "\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
+  CollectionNodeViewGenerator.prototype.viewText = function() {
+    return "" + (this.nodeStart()) + "\n" + (this.nodeManipulator()) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: node -->\n      " + (this.modelNode()) + "\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd());
   };
 
-  CollectionNodeViewGenerator.prototype.nodeStart = function(binding_context) {
+  CollectionNodeViewGenerator.prototype.nodeStart = function() {
     return "<li class='kbi' data-bind=\"css: {opened: opened, closed: !opened()}\">";
   };
 
-  CollectionNodeViewGenerator.prototype.nodeManipulator = function(binding_context) {
+  CollectionNodeViewGenerator.prototype.nodeManipulator = function() {
     return "<div class='collection' data-bind=\"click: function(){ opened(!opened()) }\">\n  <span data-bind=\"text: (opened() ? '- ' : '+ ' )\"></span>\n  <span data-bind=\"text: name\"></span>\n</div>";
   };
 
-  CollectionNodeViewGenerator.prototype.modelNode = function(binding_context) {
+  CollectionNodeViewGenerator.prototype.modelNode = function() {
     return "" + (kbi.ViewHTML.modelTree("'['+$index()+']'", false, "$data"));
   };
 
-  CollectionNodeViewGenerator.prototype.nodeEnd = function(binding_context) {
+  CollectionNodeViewGenerator.prototype.nodeEnd = function() {
     return "</li>";
   };
 
@@ -228,35 +271,35 @@ kbi.ModelNodeViewGenerator = (function() {
     this.template_name = template_name;
   }
 
-  ModelNodeViewGenerator.prototype.viewText = function(binding_context) {
-    return "" + (this.nodeStart(binding_context)) + "\n" + (this.nodeManipulator(binding_context)) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->\n        " + (this.attributeEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_ARRAY) -->\n        " + (this.attributeArrayEditor(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->\n        " + (this.modelTree(binding_context)) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->\n        " + (this.collectionTree(binding_context)) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd(binding_context));
+  ModelNodeViewGenerator.prototype.viewText = function() {
+    return "" + (this.nodeStart()) + "\n" + (this.nodeManipulator()) + "\n  <!-- ko if: opened -->\n    <!-- ko foreach: attribute_names -->\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_SIMPLE) -->\n        " + (this.attributeEditor()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_ARRAY) -->\n        " + (this.arrayTree()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_MODEL) -->\n        " + (this.modelTree()) + "\n      <!-- /ko -->\n\n      <!-- ko if: (kb.utils.valueType($parent.node[$data]) == kb.TYPE_COLLECTION) -->\n        " + (this.collectionTree()) + "\n      <!-- /ko -->\n\n    <!-- /ko -->\n  <!-- /ko -->\n" + (this.nodeEnd());
   };
 
-  ModelNodeViewGenerator.prototype.nodeStart = function(binding_context) {
+  ModelNodeViewGenerator.prototype.nodeStart = function() {
     return "<li class='kbi' data-bind=\"css: {opened: opened, closed: !opened()}\">";
   };
 
-  ModelNodeViewGenerator.prototype.nodeManipulator = function(binding_context) {
+  ModelNodeViewGenerator.prototype.nodeManipulator = function() {
     return "<div class='collection' data-bind=\"click: function(){ opened(!opened()) }\">\n  <span data-bind=\"text: (opened() ? '- ' : '+ ' )\"></span>\n  <span data-bind=\"text: name\"></span>\n</div>";
   };
 
-  ModelNodeViewGenerator.prototype.attributeEditor = function(binding_context) {
+  ModelNodeViewGenerator.prototype.attributeEditor = function() {
     return "<fieldset class='kbi'>\n  <label data-bind=\"text: $data\"></label>\n  <input type='text' data-bind=\"value: $parent.node[$data], valueUpdate: 'keyup'\">\n</fieldset>";
   };
 
-  ModelNodeViewGenerator.prototype.attributeArrayEditor = function(binding_context) {
-    return "<!-- ko foreach: $parent.node[$data] -->\n  " + (this.attributeEditor(binding_context)) + "\n<!-- /ko  -->";
+  ModelNodeViewGenerator.prototype.arrayTree = function() {
+    return "" + (kbi.ViewHTML.arrayTree('$data', false, "$parent.node[$data]"));
   };
 
-  ModelNodeViewGenerator.prototype.modelTree = function(binding_context) {
+  ModelNodeViewGenerator.prototype.modelTree = function() {
     return "" + (kbi.ViewHTML.modelTree('$data', false, "$parent.node[$data]"));
   };
 
-  ModelNodeViewGenerator.prototype.collectionTree = function(binding_context) {
+  ModelNodeViewGenerator.prototype.collectionTree = function() {
     return "" + (kbi.ViewHTML.collectionTree("$data+'[]'", true, "$parent.node[$data]"));
   };
 
-  ModelNodeViewGenerator.prototype.nodeEnd = function(binding_context) {
+  ModelNodeViewGenerator.prototype.nodeEnd = function() {
     return "</li>";
   };
 

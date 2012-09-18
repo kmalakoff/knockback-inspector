@@ -1,28 +1,27 @@
 class kbi.CollectionNodeViewGenerator
   constructor: (@template_name) ->
-  viewText: (binding_context) ->
+  viewText: ->
     return """
-      #{@nodeStart(binding_context)}
-      #{@nodeManipulator(binding_context)}
+      #{@nodeStart()}
+      #{@nodeManipulator()}
         <!-- ko if: opened -->
           <!-- ko foreach: node -->
-            #{@modelNode(binding_context)}
+            #{@modelNode()}
           <!-- /ko -->
         <!-- /ko -->
-      #{@nodeEnd(binding_context)}
+      #{@nodeEnd()}
       """
 
-  nodeStart: (binding_context) ->
+  nodeStart: ->
     return """<li class='kbi' data-bind="css: {opened: opened, closed: !opened()}">"""
 
-  nodeManipulator: (binding_context) ->
+  nodeManipulator: ->
     return """<div class='collection' data-bind="click: function(){ opened(!opened()) }">
       <span data-bind="text: (opened() ? '- ' : '+ ' )"></span>
       <span data-bind="text: name"></span>
     </div>"""
 
-  modelNode: (binding_context) ->
+  modelNode: ->
     return """#{kbi.ViewHTML.modelTree("'['+$index()+']'", false, "$data")}"""
 
-  nodeEnd: (binding_context) ->
-    return """</li>"""
+  nodeEnd: -> return '</li>'

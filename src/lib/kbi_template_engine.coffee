@@ -15,6 +15,7 @@ class kbi.TemplateEngine extends ko.nativeTemplateEngine
   constructor: ->
     @allowTemplateRewriting = false
     @generators =
+      kbi_array_node: kbi.ArrayNodeViewGenerator
       kbi_model_node: kbi.ModelNodeViewGenerator
       kbi_collection_node: kbi.CollectionNodeViewGenerator
 

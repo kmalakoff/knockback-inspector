@@ -12,7 +12,7 @@
   },
 
   "dependencies": {
-    "knockback": ">=0.16.5",
+    "knockback": ">=0.16.6",
     "backbone-relational": ">=0.5.0",
     "backbone-modelref": ">=0.1.5"
   },

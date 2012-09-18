@@ -6,7 +6,7 @@
 
   <!-- DEPENDENCIES -->
   <script type="text/javascript" src='../../vendor/jquery-1.8.0.js'></script>
-  <script type="text/javascript" src='../../vendor/knockback-core-stack-0.16.5.js'></script>
+  <script type="text/javascript" src='../../vendor/knockback-core-stack-0.16.6.js'></script>
   <script type="text/javascript" src="../../vendor/backbone-relational-0.6.0.js"></script>
 
   <!-- KNOCKBACK-INSPECTOR LIBRARY -->
@@ -39,9 +39,9 @@
     <!-- Step 2: Rendering a Backbone.Model using kb.ViewModel -->
     <ul id='backbone_model' class='kbi root' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
     <script type='text/javascript'>
-      var model1 = new Backbone.Model({name: 'Model1', pet: 'frog', friends: new Backbone.Collection([])});
-      var model2 = new Backbone.Model({name: 'Model2', pet: 'dog', friends: new Backbone.Collection([])});
-      var model3 = new Backbone.Model({name: 'Model3', pet: '(none)', friends: new Backbone.Collection([])});
+      var model1 = new Backbone.Model({name: 'Model1', pet: 'frog', friends: new Backbone.Collection([]), an_array: ['hello', 3]});
+      var model2 = new Backbone.Model({name: 'Model2', pet: 'dog', friends: new Backbone.Collection([]), an_array: [model1, model1.get('friends')]});
+      var model3 = new Backbone.Model({name: 'Model3', pet: '(none)', friends: new Backbone.Collection([]), an_array: [[model2], [model1]]});
       model1.get('friends').reset([model2, model3]);
       model2.get('friends').reset([model1, model3]);
       model3.get('friends').reset([model1, model2]);
