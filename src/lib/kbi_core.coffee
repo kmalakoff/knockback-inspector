@@ -1,5 +1,5 @@
 ###
-knockback-inspector.js 0.1.5
+knockback-inspector.js 0.1.6
 (c) 2012 Kevin Malakoff.
 Knockback-Inspector.js is freely distributable under the MIT license.
 See the following for full license details:
@@ -16,4 +16,4 @@ kb = if not @kb and (typeof(require) isnt 'undefined') then require('knockback')
 
 # export or create kbi namespace
 kbi = @kbi = if (typeof(exports) != 'undefined') then exports else {}
-@kbi.VERSION = '0.1.5'
+@kbi.VERSION = '0.1.6'

@@ -33,7 +33,7 @@ class kbi.ArrayNodeViewGenerator
   nodeManipulator: ->
     return """<div class='array' data-bind="click: function(){ opened(!opened()) }">
       <span data-bind="text: (opened() ? '- ' : '+ ' )"></span>
-      <span data-bind="text: name"></span>
+      <span data-bind="text: name + '[]'"></span>
     </div>"""
 
   attributeEditor: ->
@@ -45,12 +45,12 @@ class kbi.ArrayNodeViewGenerator
     """
 
   arrayTree: ->
-    return """#{kbi.ViewHTML.arrayTree("'['+$index()+'] (array)'", false, "$data")}"""
+    return """#{kbi.ViewHTML.arrayTree("'['+$index()+']'", false, "$data")}"""
 
   modelTree: ->
-    return """#{kbi.ViewHTML.modelTree("'['+$index()+'] (model)'", false, "$data")}"""
+    return """#{kbi.ViewHTML.modelTree("'['+$index()+']'", false, "$data")}"""
 
   collectionTree: ->
-    return """#{kbi.ViewHTML.collectionTree("'['+$index()+'] (collection)'", false, "$data")}"""
+    return """#{kbi.ViewHTML.collectionTree("'['+$index()+']'", false, "$data")}"""
 
   nodeEnd: -> return ''

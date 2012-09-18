@@ -4,10 +4,10 @@
 
 Knockback-Inspector.js provides an inspector tree view library for Backbone.Models and Backbone.Collections using Knockback.js,
 
-#Download Latest (0.1.5):
+#Download Latest (0.1.6):
 
-* [Development version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.5/knockback-inspector.js)
-* [Production version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.5/knockback-inspector.min.js)
+* [Development version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.6/knockback-inspector.js)
+* [Production version](https://raw.github.com/kmalakoff/knockback-inspector/0.1.6/knockback-inspector.min.js)
 * [Styling](http://cloud.github.com/downloads/kmalakoff/knockback-inspector/knockback-inspector.css)
 
 Please see the [release notes](https://github.com/kmalakoff/knockback-inspector/blob/master/RELEASE_NOTES.md) for upgrade pointers.
