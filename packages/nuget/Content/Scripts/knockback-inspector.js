@@ -181,13 +181,11 @@ kbi.NodeViewModel = (function() {
       this.node = node_value;
       model = kb.utils.wrappedModel(this.node);
       this.attribute_names = ko.observableArray(model ? _.keys(model.attributes) : []);
-    } else if ((typeof node_value.get === 'function') && (typeof node_value.trigger === 'function')) {
-      if (node_value.models) {
-        this.node = kb.collectionObservable(node_value);
-      } else {
-        this.node = kb.viewModel(node_value);
-        this.attribute_names = ko.observableArray(_.keys(node_value.attributes));
-      }
+    } else if (kb.utils.hasCollectionSignature(node_value)) {
+      this.node = kb.collectionObservable(node_value);
+    } else if (kb.utils.hasModelSignature(node_value)) {
+      this.node = kb.viewModel(node_value);
+      this.attribute_names = ko.observableArray(_.keys(node_value.attributes));
     }
     return;
   }

@@ -9,15 +9,14 @@ class kbi.NodeViewModel
       model = kb.utils.wrappedModel(@node)
       @attribute_names = ko.observableArray(if model then _.keys(model.attributes) else [])
 
-    # Backbone signature
-    else if (typeof(node_value.get) is 'function') and (typeof(node_value.trigger) is 'function')
-      # Backbone.Collection signature
-      if (node_value.models)
-        @node = kb.collectionObservable(node_value) # create collection observable
-      # Backbone.Model signature
-      else
-        @node = kb.viewModel(node_value) # create view model
-        @attribute_names = ko.observableArray(_.keys(node_value.attributes))
+    # Backbone.Collection signature
+    else if kb.utils.hasCollectionSignature(node_value)
+      @node = kb.collectionObservable(node_value) # create collection observable
+
+    # Backbone.Model signature
+    else if kb.utils.hasModelSignature(node_value)
+      @node = kb.viewModel(node_value) # create view model
+      @attribute_names = ko.observableArray(_.keys(node_value.attributes))
 
     return
 
