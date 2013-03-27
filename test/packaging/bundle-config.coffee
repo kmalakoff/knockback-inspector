@@ -3,6 +3,6 @@ module.exports =
     underscore: 'underscore'
     backbone: 'backbone'
     'backbone-relational': 'backbone-relational'
-    knockout: 'knockout-client/knockout.debug.js'
+    knockout: 'knockout'
     knockback: 'knockback'
     'knockback-inspector': 'knockback-inspector.js'

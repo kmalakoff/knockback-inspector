@@ -45,11 +45,11 @@ module.exports =
     commands: [
       'cp -v knockback/knockback-core-stack.js vendor/knockback-core-stack.js'
       'cp -v backbone-relational vendor/backbone-relational.js'
-      'cp -v lodash vendor/lodash.js'
+      'cp -v lodash vendor/optional/lodash.js'
 
       # amd tests
-      'cp -v underscore test/vendor/underscore.js'
-      'cp -v backbone test/vendor/backbone.js'
-      'cp -v knockout-client/knockout.debug.js test/vendor/knockout.js'
-      'cp -v knockback/knockback-core.js test/vendor/knockback-core.js'
+      'cp -v underscore vendor/test/underscore.js'
+      'cp -v backbone vendor/test/backbone.js'
+      'cp knockout/build/output/knockout-latest.debug.js vendor/test/knockout-2.2.1.js'
+      'cp -v knockback/knockback-core.js vendor/test/knockback-core.js'
     ]

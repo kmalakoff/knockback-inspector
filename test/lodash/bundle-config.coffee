@@ -1,9 +1,9 @@
 module.exports =
   'test/lodash/build/bundle-lodash.js':
-    lodash: 'vendor/lodash-0.9.0.js'
+    lodash: 'vendor/optional/lodash-1.1.0.js'
     backbone: 'backbone'
     'backbone-relational': 'backbone-relational'
-    knockout: 'knockout-client/knockout.debug.js'
+    knockout: 'knockout'
     knockback: 'knockback'
     'knockback-inspector': 'knockback-inspector.js'
     _alias:
