@@ -17,3 +17,6 @@ kb = if not @kb and (typeof(require) isnt 'undefined') then require('knockback')
 # export or create kbi namespace
 kbi = @kbi = if (typeof(exports) != 'undefined') then exports else {}
 @kbi.VERSION = '0.1.6'
+
+# export Knockback so it is accessible by the views
+@kb = kb

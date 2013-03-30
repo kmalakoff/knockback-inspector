@@ -51,6 +51,8 @@ kbi = this.kbi = typeof exports !== 'undefined' ? exports : {};
 
 this.kbi.VERSION = '0.1.6';
 
+this.kb = kb;
+
 kbi.TemplateSource = (function() {
   function TemplateSource(template_generator, binding_context) {
     this.template_generator = template_generator;

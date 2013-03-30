@@ -50,6 +50,6 @@ module.exports =
       # amd tests
       'cp -v underscore vendor/test/underscore.js'
       'cp -v backbone vendor/test/backbone.js'
-      'cp knockout/build/output/knockout-latest.debug.js vendor/test/knockout-2.2.1.js'
+      'cp knockout/build/output/knockout-latest.debug.js vendor/knockout-2.2.1.js'
       'cp -v knockback/knockback-core.js vendor/test/knockback-core.js'
     ]

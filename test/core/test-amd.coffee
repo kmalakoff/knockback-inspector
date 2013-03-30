@@ -1,37 +1,25 @@
-$(->
-  module("knockback-defaults-amd.js")
+try
+  require.config({
+    paths:
+      'underscore': "../../vendor/test/underscore-1.4.4"
+      'backbone': "../../vendor/test/backbone-1.0.0"
+      'backbone-relational': "../../vendor/test/backbone-relational-0.6.0"
+      'knockout': "../../vendor/test/knockout-2.2.1"
+      'knockback': "../../vendor/test/knockback-core-0.17.0pre"
+      'knockback-inspector': "../../knockback-inspector"
+    shim:
+      underscore:
+        exports: '_'
+      backbone:
+        exports: 'Backbone'
+        deps: ['underscore']
+  })
+
+  module_name = 'knockback-defaults'
+  module_name = 'knockback' if (require.toUrl(module_name).split('./..').length is 1)
 
   # library and dependencies
-  require(['underscore', 'backbone', 'knockout', 'knockback', 'knockback-inspector'], (_, Backbone, ko, kb, kbi) ->
-    _ or= @_
-    Backbone or= @Backbone
-
-    test("TEST DEPENDENCY MISSING", ->
-      ok(!!_); ok(!!Backbone); ok(!!ko); ok(!!kb); ok(!!kbi)
-    )
-
-    # make kbi global so can be accessed by templates
-    window.kbi = kbi
-
-    # set the template engine so Knockout can find 'kbi_model_node' and 'kbi_collection_node' templates
-    ko.setTemplateEngine(new kbi.TemplateEngine())
-
-    test("Backbone.Model", ->
-      html = """
-        <ul id='model' data-bind="template: {name: 'kbi_model_node', data: kbi.nvm('root', true, $data)}"></ul>
-      """
-
-      your_model = new Backbone.Model({name: 'Hello', place: 'World!'})
-      ko.applyBindings(kb.viewModel(your_model), $(html)[0])
-    )
-
-    test("Backbone.Collection", ->
-      html = """
-        <ul id='collection' data-bind="template: {name: 'kbi_collection_node', data: kbi.nvm('root', true, $data)}"></ul>
-      """
-
-      your_collection = new Backbone.Collection([{name: 'Hello', place: 'World!'}, {name: 'Goodbye', place: 'Samsara!'}])
-      ko.applyBindings(kb.collectionObservable(your_collection, {view_model: kb.ViewModel}), $(html)[0]);
-    )
-  )
-)
+  require ['underscore', 'backbone', 'knockout', 'knockback', 'knockback-inspector', 'qunit_test_runner'], (_, Backbone, ko, kb, kbi, runner) ->
+    window._ = window.Backbone = window.ko = window.kbi = null # force each test to require dependencies synchronously
+    # window.kb = null # force each test to require dependencies synchronously
+    require ['./build/test'], -> runner.start()
