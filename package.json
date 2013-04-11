@@ -25,9 +25,9 @@
   "dependencies": {
     "backbone": ">=1.0.0",
     "knockout": "2.2.1",
-    "backbone-relational": ">=0.8.0plus",
+    "backbone-relational": ">=0.8.5",
     "backbone-modelref": ">=0.1.5",
-    "knockback": ">=0.17.1",
+    "knockback": ">=0.17.2",
     "lodash": ">=0.6.1"
   },
 
