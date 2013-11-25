@@ -12,9 +12,9 @@
   },
 
   "dependencies": {
-    "knockback": ">=0.17.2",
+    "knockback": "git+https://github.com/kmalakoff/knockback",
     "backbone-relational": ">=0.8.0",
-    "backbone-modelref": ">=0.1.5"
+    "backbone-modelref": "0.1.x"
   },
 
   "main"          : "knockback-inspector.js",
