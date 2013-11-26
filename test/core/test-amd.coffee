@@ -5,7 +5,7 @@ try
       'backbone': "../../vendor/test/backbone-1.1.0"
       'backbone-relational': "../../vendor/test/backbone-relational-0.6.0"
       'knockout': "../../vendor/knockout-3.0.0"
-      'knockback': "../../vendor/test/knockback-core-0.18.0"
+      'knockback': "../../vendor/test/knockback-core-0.18.1"
       'knockback-inspector': "../../knockback-inspector"
     shim:
       underscore:

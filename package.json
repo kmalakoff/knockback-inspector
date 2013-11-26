@@ -27,7 +27,7 @@
     "knockout": "3.0.x",
     "backbone-relational": "0.8.x",
     "backbone-modelref": "0.1.x",
-    "knockback": "git+https://github.com/kmalakoff/knockback",
+    "knockback": "0.18.x",
     "lodash": "2.3.x"
   },
 
