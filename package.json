@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "backbone": "1.1.x",
-    "knockout": "3.0.x",
+    "knockout": "3.5.x",
     "backbone-relational": "0.8.x",
     "backbone-modelref": "0.1.x",
     "knockback": "0.18.x",
