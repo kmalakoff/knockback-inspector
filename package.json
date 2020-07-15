@@ -28,7 +28,7 @@
     "backbone-relational": "0.8.x",
     "backbone-modelref": "0.1.x",
     "knockback": "0.18.x",
-    "lodash": "2.3.x"
+    "lodash": "4.17.x"
   },
 
   "main"          : "knockback-inspector.js",
